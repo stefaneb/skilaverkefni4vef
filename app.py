@@ -1,3 +1,4 @@
+import os
 from bottle import route,run, error, static_file, template
 import json
 
@@ -24,4 +25,4 @@ def error500(error):
 def nemandi(kt):
     return template('nemandi', kt=kt, bekkur=bekkur)
 
-run()
+run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
